@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.5.0"
+    ext.kotlin_version = "1.5.10"
     repositories {
         google()
         mavenCentral()
@@ -12,45 +12,13 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
-    ext {
-        // Dependencies version
-        core_version = '1.3.2'
-
-        app_compat_version = '1.2.0'
-        material_version = '1.3.0'
-        constraint_layout_version = '2.0.4'
-        recycler_view_version = '1.2.0'
-        glide_version = '4.12.0'
-        glide_transformations_version = '4.3.0'
-        legacy_version = '1.0.0'
-        overscroll_decor_version = '1.1.0'
-
-        navigation_version = '2.3.5'
-
-        livecycle_version = '2.3.1'
-
-        retrofit_version = '2.9.0'
-        logging_interceptor_version = '4.9.1'
-
-        idling_resource_version = '3.3.0'
-        espresso_idling_resource_version = '3.0.2'
-        junit_version = '4.13.2'
-        truth_version = '1.1.2'
-        mockito_version = '3.9.0'
-        android_core_test_version = '2.1.0'
-        mockito_kotlin_version = '2.2.0'
-        junit_ext_version = '1.1.2'
-        espresso_version = '3.3.0'
-        android_test_version = '1.3.0'
-    }
 }
 
 allprojects {
     repositories {
         google()
         mavenCentral()
-        // Not deleted, it's used for "me.everything:overscroll-decor-android"
-        jcenter()
+        jcenter() // for 'com.github.ybq:Android-SpinKit:1.4.0'
     }
 }
 

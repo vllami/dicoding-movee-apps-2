@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Submission Dua</string>
+    <string name="app_name">Movee</string>
+    <string name="movies">Movies</string>
+    <string name="tv_shows">TV Shows</string>
+    <string name="rating">Rating:</string>
+    <string name="release_date_2">Release Date:</string>
+    <string name="genre">Genre</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="release_date">Release Date</string>
+    <string name="director_details">Director</string>
+    <string name="movies_and_tv_shows_list"><![CDATA[Movies & TV Shows List]]></string>
 </resources>
