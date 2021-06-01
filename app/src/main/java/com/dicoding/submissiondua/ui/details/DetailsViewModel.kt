@@ -9,11 +9,6 @@ class DetailsViewModel(private val repository: Repository) : ViewModel() {
 
     private lateinit var detailsEntity: LiveData<DetailsEntity>
 
-    companion object {
-        const val MOVIES_DETAILS = "movies_details"
-        const val TV_SHOWS_DETAILS = "tv_shows_details"
-    }
-
     fun setSelected(id: String, selected: String) {
         repository.apply {
             when(selected) {
@@ -24,5 +19,10 @@ class DetailsViewModel(private val repository: Repository) : ViewModel() {
     }
 
     fun getSelected() = detailsEntity
+
+    companion object {
+        const val MOVIES_DETAILS = "movies_details"
+        const val TV_SHOWS_DETAILS = "tv_shows_details"
+    }
 
 }

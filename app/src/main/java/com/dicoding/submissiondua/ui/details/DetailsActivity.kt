@@ -20,11 +20,6 @@ import jp.wasabeef.glide.transformations.BlurTransformation
 
 class DetailsActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_DETAILS = "extra_details"
-        const val EXTRA_SELECTED = "extra_selected"
-    }
-
     private lateinit var activityDetailsBinding: ActivityDetailsBinding
     private lateinit var contentDetailsBinding: ContentDetailsBinding
 
@@ -71,13 +66,13 @@ class DetailsActivity : AppCompatActivity() {
             entityOfDetails.apply {
                 Glide
                     .with(this@DetailsActivity)
-                    .load("https://image.tmdb.org/t/p/w500$backdrop")
+                    .load("$BASE_URL$backdrop")
                     .apply(placeholderOf(drawable.ic_loading).error(drawable.ic_error))
                     .apply(bitmapTransform(BlurTransformation(3, 6)))
                     .into(imgBackdrop)
                 Glide
                     .with(this@DetailsActivity)
-                    .load("https://image.tmdb.org/t/p/w500$poster")
+                    .load("$BASE_URL$poster")
                     .transform(RoundedCorners(36))
                     .apply(placeholderOf(drawable.ic_loading).error(drawable.ic_error))
                     .into(imgPoster)
@@ -110,4 +105,11 @@ class DetailsActivity : AppCompatActivity() {
             }
         }
     }
+
+    companion object {
+        const val EXTRA_DETAILS = "extra_details"
+        const val EXTRA_SELECTED = "extra_selected"
+        const val BASE_URL = "https://image.tmdb.org/t/p/w500"
+    }
+
 }

@@ -45,7 +45,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
                 moviesEntity.apply {
                     Glide
                         .with(itemView.context)
-                        .load("https://image.tmdb.org/t/p/w500$poster")
+                        .load("$BASE_URL$poster")
                         .transform(RoundedCorners(18))
                         .apply(placeholderOf(drawable.ic_loading).error(drawable.ic_error))
                         .into(imgPoster)
@@ -63,6 +63,10 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     interface OnItemClickCallback {
         fun onItemClicked(id: String)
+    }
+
+    companion object {
+        const val BASE_URL = "https://image.tmdb.org/t/p/w500"
     }
 
 }

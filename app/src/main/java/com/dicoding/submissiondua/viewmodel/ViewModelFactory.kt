@@ -9,19 +9,6 @@ import com.dicoding.submissiondua.di.Injection.provideRepository as InjectionPro
 
 class ViewModelFactory private constructor(private val repository: Repository) : ViewModelInstanceFactory() {
 
-    companion object {
-        @Volatile
-        private var viewModelFactory: ViewModelFactory? = null
-
-        fun getViewModelFactory(): ViewModelFactory {
-            return viewModelFactory ?: synchronized(this) {
-                viewModelFactory ?: ViewModelFactory(InjectionProvideRepository()).apply {
-                    viewModelFactory = this
-                }
-            }
-        }
-    }
-
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         modelClass.apply {
@@ -33,6 +20,19 @@ class ViewModelFactory private constructor(private val repository: Repository) :
                     DetailsViewModel(repository) as T
                 }
                 else -> throw Throwable("Unknown ViewModel $name")
+            }
+        }
+    }
+
+    companion object {
+        @Volatile
+        private var viewModelFactory: ViewModelFactory? = null
+
+        fun getViewModelFactory(): ViewModelFactory {
+            return viewModelFactory ?: synchronized(this) {
+                viewModelFactory ?: ViewModelFactory(InjectionProvideRepository()).apply {
+                    viewModelFactory = this
+                }
             }
         }
     }

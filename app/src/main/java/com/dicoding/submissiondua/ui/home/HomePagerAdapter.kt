@@ -11,11 +11,6 @@ import com.dicoding.submissiondua.ui.home.tab_tv_shows.TvShowsFragment
 
 class HomePagerAdapter(private val context: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    companion object {
-        @StringRes
-        private val TAB_TITLES = intArrayOf(string.movies, string.tv_shows)
-    }
-
     override fun getCount(): Int = 2
 
     override fun getItem(position: Int): Fragment {
@@ -27,5 +22,10 @@ class HomePagerAdapter(private val context: Context, fragmentManager: FragmentMa
     }
 
     override fun getPageTitle(position: Int): CharSequence = context.resources.getString(TAB_TITLES[position])
+
+    companion object {
+        @StringRes
+        private val TAB_TITLES = intArrayOf(string.movies, string.tv_shows)
+    }
 
 }

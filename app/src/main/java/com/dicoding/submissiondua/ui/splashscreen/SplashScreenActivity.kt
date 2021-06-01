@@ -9,10 +9,6 @@ import com.dicoding.submissiondua.ui.home.HomeActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
-    companion object {
-        private const val SPLASH_SCREEN_DELAY = 3_000
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout.activity_splash_screen)
@@ -23,6 +19,10 @@ class SplashScreenActivity : AppCompatActivity() {
                 finish()
             }
         }, SPLASH_SCREEN_DELAY.toLong())
+    }
+
+    companion object {
+        private const val SPLASH_SCREEN_DELAY = 3_000
     }
 
 }
