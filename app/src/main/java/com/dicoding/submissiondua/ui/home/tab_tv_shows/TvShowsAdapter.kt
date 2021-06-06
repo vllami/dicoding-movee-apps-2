@@ -27,11 +27,11 @@ class TvShowsAdapter : RecyclerView.Adapter<TvShowsAdapter.TvShowsViewHolder>() 
 
     override fun getItemCount(): Int = listTvShows.size
 
-    fun setTvShows(movies: List<TvShowsEntity>?) {
-        if (movies == null) return
+    fun setTvShows(tvShows: List<TvShowsEntity>?) {
+        if (tvShows == null) return
         with(this.listTvShows) {
             clear()
-            addAll(movies)
+            addAll(tvShows)
         }
     }
 
@@ -40,9 +40,9 @@ class TvShowsAdapter : RecyclerView.Adapter<TvShowsAdapter.TvShowsViewHolder>() 
     }
 
     inner class TvShowsViewHolder(private val binding: ItemsTvShowsBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(moviesEntity: TvShowsEntity) {
+        fun bind(tvShowsEntity: TvShowsEntity) {
             binding.apply {
-                moviesEntity.apply {
+                tvShowsEntity.apply {
                     Glide
                         .with(itemView.context)
                         .load("$BASE_URL$poster")
